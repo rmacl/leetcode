@@ -1,0 +1,22 @@
+const oMoveDirectionMap = {"U":[0,1], "D":[0,-1], "R":[1,0], "L":[-1,0]};
+
+
+var judgeCircle = function(moves) {
+    var aMoves =  moves.split('');
+    var aTempMove = [];
+
+    aMoves.forEach(function(sDirection){
+        aTempMove.push(oMoveDirectionMap[sDirection]);
+    });  
+    
+    var aFinalPosition = aTempMove.reduce((aTotalMove, aEachMove)=>{
+        aTotalMove[0] += aEachMove[0];
+        aTotalMove[1] += aEachMove[1];
+        
+        return aTotalMove;
+    });
+    if(aFinalPosition[0] == 0 && aFinalPosition[1] ==0){
+        return true;
+    }
+    return false;
+}
