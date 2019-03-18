@@ -1,0 +1,16 @@
+var twoSum = function(nums, target) {
+    var oTemp = {};
+    var aResult = [];
+    nums.map((iValue, iIndex)=> oTemp[iValue]=iIndex);
+    
+    for(var i=0; i<nums.length; i++){
+        var iDiff = target - nums[i];
+        if(nums[i] != iDiff && !oTemp[iDiff] == false){           
+            aResult.push(i,oTemp[iDiff]);
+            break;
+        }
+    }
+    
+
+    return aResult;
+};
