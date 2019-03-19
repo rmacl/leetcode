@@ -1,0 +1,14 @@
+var isToeplitzMatrix = function(matrix) {
+
+    var bResult =
+    matrix.every((aRow, iIndex)=>{       
+        bFlag = aRow.every((iValue, iCellIndex)=>{
+            if(matrix.length == iIndex+1 || aRow.length ==  iCellIndex +1){
+                return true;
+            }
+            return  matrix[iIndex+1][iCellIndex+1] == iValue;
+        });
+       return bFlag;
+    });
+    return bResult;
+};
