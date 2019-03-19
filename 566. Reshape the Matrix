@@ -1,0 +1,16 @@
+var matrixReshape = function(nums, r, c) {
+    var aNewMatrix = new Array(r);
+    var aFlattened = nums.reduce((a,b)=> a.concat(b),[]);
+   
+    if(aFlattened.length  != r*c){
+        return nums;
+    }
+    for(var i =0; i<r; i++){
+        aNewMatrix[i] = new Array(c);
+        for(var j=0; j<c; j++){  
+        aNewMatrix[i][j] =aFlattened.shift();
+        }
+    }
+    
+    return aNewMatrix;
+};
