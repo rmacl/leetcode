@@ -1,0 +1,25 @@
+var addStrings = function(num1, num2) {
+    var iMaxLength = Math.max(num1.length, num2.length);
+    var sNum1 = num1.padStart(iMaxLength);
+    var sNum2 = num2.padStart(iMaxLength);
+    var iNum1 = 0;
+    var iNum2 = 0;
+    var sResult = '';
+    var iUp = 0;
+    
+    for(var i = iMaxLength-1; i >=0; i--){
+  
+        iNum1 = (sNum1.charAt(i) == ' ') ?  0 : parseInt(sNum1.charAt(i),10); 
+        iNum2 = (sNum2.charAt(i) == ' ') ?  0 : parseInt(sNum2.charAt(i),10);
+        
+        var sTemp = iNum1 + iNum2 +iUp;
+        sResult += sTemp%10;
+        iUp = (sTemp >=10) ? 1 : 0;
+     
+        if(i == 0 && sTemp >= 10){
+            sResult += 1;
+        }
+       
+    }
+    return sResult.split('').reverse().join('');
+};
