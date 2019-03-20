@@ -1,0 +1,12 @@
+var arrangeCoins = function(n) {
+
+    var iTemp = 0;
+    var iRow = 0;
+    for(var i=0; i<n; i++){        
+        iTemp += i;      
+        if(iTemp > n){
+            return i-1;
+        }
+    }
+    return n;        
+};
