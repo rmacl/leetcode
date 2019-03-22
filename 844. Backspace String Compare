@@ -1,0 +1,21 @@
+var backspaceCompare = function(S, T) {
+    var sS = typeWord(S);
+    var sT = typeWord(T);
+    if(sS == sT){
+        return true;
+    }
+    return false;
+
+};
+
+var typeWord = function(word){
+    var sResult = '';    
+    for(var i= 0; i< word.length; i++){       
+        if(word[i] != '#'){
+            sResult += word[i];
+        }else{            
+            sResult = sResult.substr(0, sResult.length-1);
+        }             
+    }
+    return sResult;
+};
