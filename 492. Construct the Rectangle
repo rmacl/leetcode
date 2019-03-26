@@ -1,0 +1,15 @@
+var constructRectangle = function(area) {
+    var aResult = [];
+    for(var i=1; i<=area; i++){
+        if(area%i == 0){
+            aResult.push(i);
+        }
+    }
+    var iLength = aResult.length;
+   
+    if(iLength % 2 ==0){
+        return [aResult[iLength/2], aResult[(iLength/2)-1]];
+    }
+    var iHalf = (iLength-1) /2;
+    return [aResult[iHalf], aResult[iHalf]];
+};
