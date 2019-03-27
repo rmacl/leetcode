@@ -1,0 +1,15 @@
+
+var canConstruct = function(ransomNote, magazine) {
+    var aRansomeNote = ransomNote.split('');
+    var aMazazine = magazine.split('');
+    
+    var aResult = aRansomeNote.every((sString)=> {
+        var iIndex = aMazazine.indexOf(sString);
+        if(iIndex >= 0){
+            aMazazine.splice(iIndex,1);
+            return true;
+        }
+        return false;
+    });
+    return aResult;
+};
