@@ -1,0 +1,16 @@
+var sumOfLeftLeaves = function(root) { 
+    return searchTree(root, false);
+};
+
+var searchTree = function(oTree, bLeft){
+    
+    if(oTree == null){
+        return 0;
+    }
+    
+    if(oTree.right == null && oTree.left == null && bLeft == true){
+        return oTree.val;
+    }
+    
+    return searchTree(oTree.right , false) + searchTree(oTree.left , true);
+};
