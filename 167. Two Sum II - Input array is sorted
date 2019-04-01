@@ -1,0 +1,11 @@
+var twoSum = function(numbers, target) {
+    var oNum = new Map();
+   for(var i = 0; i <numbers.length; i++){
+       var iDiff = target - numbers[i];
+       if(oNum.has(numbers[i]) == false){
+           oNum.set(iDiff, i);
+       }else{
+           return [oNum.get(numbers[i]) + 1, i+1];
+       }
+   }
+};
