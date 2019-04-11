@@ -1,0 +1,22 @@
+var findShortestSubArray = function(nums) {
+    var oNum = {};
+    var oFirstIndex = {};
+    var oLastIndex = {};
+    var iMax = 0;
+    var aDistance = [];
+    nums.map((iValue, iIndex) => {
+        oNum[iValue] = (!oNum[iValue]) ? 1 : oNum[iValue] +1;
+        iMax = Math.max(oNum[iValue], iMax);
+        if(oFirstIndex[iValue] == null){
+            oFirstIndex[iValue] = iIndex;
+        }
+        oLastIndex[iValue] = iIndex;
+    });
+    
+    for(var iNum in oNum){
+        if(oNum[iNum] == iMax){
+             aDistance.push(oLastIndex[iNum] - oFirstIndex[iNum]);
+        }
+    }
+    return Math.min(...aDistance) +1;
+};
