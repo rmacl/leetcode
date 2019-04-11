@@ -1,0 +1,21 @@
+var binaryTreePaths = function(root) {
+    var aResult = new Set();
+    searchTree(root, aResult, '');
+    return [...aResult];
+};
+
+var searchTree = function(root, aResult, sString){
+    if(root == null){
+        return false;
+    }
+    
+    var sAdd = (sString.length == 0) ? root.val : ('->' + root.val);
+    sString += sAdd;
+    if(root.right == null && root.left == null){
+        aResult.add(sString);
+        return false;
+    }
+  
+    searchTree(root.right, aResult, sString); 
+    searchTree(root.left, aResult, sString);
+}
