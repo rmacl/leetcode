@@ -1,0 +1,36 @@
+var findMode = function(root) {
+
+    var oResult = {};
+    var iCount = 0;
+ 
+    var searchTree = function(root){
+        
+        if(root == null){
+            return;
+        }
+        if(!oResult[root.val]){
+            oResult[root.val] = 1;
+        }else{
+            oResult[root.val] = oResult[root.val] +1;
+        }
+        iCount = Math.max(iCount, oResult[root.val]);    
+        if(root.right == null && root.left == null){
+            return;
+        }
+        
+        searchTree(root.right);
+        searchTree(root.left)
+    }
+    searchTree(root);
+    return searchMax(oResult, iCount);
+};
+
+var searchMax = function(oResult , iCount){
+    var aResult = [];
+    for(var iVal in oResult){
+        if(oResult[iVal] == iCount){
+           aResult.push(parseInt(iVal,10));
+        }
+    }
+    return aResult;
+}
