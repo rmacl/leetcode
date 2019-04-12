@@ -1,0 +1,16 @@
+var isHappy = function(n) {
+    
+    while(n !== 1){
+     var iSum = 0;   
+       while(n > 0){
+        var iDigit = Math.pow(n%10,2);
+        iSum += iDigit;
+        n= Math.floor(n / 10);
+        if(iDigit === n && iDigit !== 1){
+            return false;
+        }
+       }
+     n = iSum;
+    }
+    return true;
+};
