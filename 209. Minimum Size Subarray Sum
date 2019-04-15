@@ -1,0 +1,17 @@
+var minSubArrayLen = function(s, nums) {
+    var iLength = nums.length;
+    var iLeft = 0;
+    var iRight = 0;
+    var iMin = Infinity;
+    var iSum = 0;
+    while(iRight <= iLength){
+        iSum += nums[iRight];
+        while(iSum >= s){
+            iMin = Math.min(iMin, iRight - iLeft +1); 
+            iSum -= nums[iLeft];
+            iLeft++;
+        }
+        iRight++;       
+    }
+    return iMin == Infinity ? 0 : iMin;
+};
