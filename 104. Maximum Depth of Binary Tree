@@ -1,0 +1,21 @@
+var maxDepth = function(root) {
+    var aResult = [];
+    if(root == null){
+        return 0;
+    }
+    searchTree(root, aResult, 1);
+    return Math.max(...aResult);
+};
+
+var searchTree = function(oTree, aResult, iDepth){  
+     if(oTree == null){
+        return;
+    }
+    if(oTree.right == null && oTree.left == null){
+        aResult.push(iDepth);
+        return;
+    } 
+    
+    searchTree(oTree.right, aResult, iDepth+1);  
+    searchTree(oTree.left, aResult, iDepth+1);
+}
