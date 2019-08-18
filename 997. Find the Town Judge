@@ -1,0 +1,20 @@
+var findJudge = function(N, trust) {
+    let trustedMember = [];
+    let maxCount = 0;
+    let suspectJudge = 1;
+    let townMember = new Set();
+    
+    trustedMember.length = N;
+    trustedMember.fill(0);
+    
+    trust.forEach((row)=>{
+        let trustedPerosnIndex = row[1] - 1;
+        townMember.add(row[0]);
+        trustedMember[trustedPerosnIndex]++;
+        if(maxCount <= trustedMember[trustedPerosnIndex]){
+            suspectJudge = row[1];
+            maxCount = trustedMember[trustedPerosnIndex];
+        }
+    })
+    return ((townMember.has(suspectJudge) == false && maxCount == N-1) || N == 1) ? suspectJudge : -1;
+};
