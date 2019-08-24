@@ -1,0 +1,14 @@
+var numEquivDominoPairs = function(dominoes) {
+    let pairMap = new Map();
+    let count = 0;
+    dominoes.forEach((domino)=>{
+        let numberToString = Math.min(domino[0], domino[1]) *10 + Math.max(domino[0], domino[1])  + "";
+        if(pairMap.has(numberToString) == false){
+            pairMap.set(numberToString, 0);
+        }
+        let val = pairMap.get(numberToString);
+        count += val;
+        pairMap.set(numberToString, val+1);
+    });
+    return count;
+};
