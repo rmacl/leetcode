@@ -1,6 +1,5 @@
 var largestPerimeter = function(A) {
     A.sort((a,b) => b-a);
-    let max = -Infinity;
     for(let index = 0; index < A.length-2; index++){
         let first = A[index];
         let second = A[index+1];
@@ -8,7 +7,7 @@ var largestPerimeter = function(A) {
         if(first >= (second + third)){
             continue;
         }
-        max = Math.max(first+second+third, max);
+        return first+second+third;
     }
-    return (max == -Infinity) ? 0 : max;
+    return 0;
 };
