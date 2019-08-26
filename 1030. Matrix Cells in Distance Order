@@ -1,0 +1,14 @@
+var allCellsDistOrder = function(R, C, r0, c0) {
+    var array = [];
+    for(let i = 0; i < R; i++){
+        for(let j = 0; j < C; j++){
+            array.push([i, j]);
+        }
+    }
+
+    array.sort((row1, row2) => {
+        return (Math.abs(row1[0] - r0) + Math.abs(row1[1] - c0)) - ((Math.abs(row2[0] - r0) + Math.abs(row2[1] - c0)));
+    });
+
+    return array;
+};
