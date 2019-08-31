@@ -1,0 +1,21 @@
+var findPairs = function(nums, k) {
+   let count = 0;
+   let numbers = new Map();
+   nums.forEach((number) => {
+       numbers[number] = (numbers[number]) ? numbers[number] +1 : 1;
+   })
+
+   nums.forEach((number) => {
+       let diff = number - k;
+       if(k == 0){
+           if(numbers[number] >= 2){
+             numbers[number] = 0;  
+             count++;
+           }
+       }else if(k > 0 && numbers[diff] > 0){
+            numbers[diff] = 0;
+            count++;
+       }
+   })
+    return count;
+};
