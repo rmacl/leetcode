@@ -1,0 +1,13 @@
+var findLengthOfLCIS = function(nums) {
+    let distance = 1;
+    let longestDistance = 1;
+    for(let index = 0; index < nums.length-1; index++){
+        if(nums[index+1] - nums[index] > 0){   
+            distance ++;
+            longestDistance = Math.max(distance, longestDistance);
+            continue;
+        }
+        distance = 1;
+    }
+    return (nums.length == 0) ? 0 : longestDistance;
+};
