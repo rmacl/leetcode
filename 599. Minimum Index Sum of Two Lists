@@ -1,0 +1,25 @@
+var findRestaurant = function(list1, list2) {
+    if(list1.length < list2.length){
+        findRestaurant(list2, list1);
+    }
+    
+    let mapList = new Map();
+    let minimumIndexSum = 2000;
+    let result = [];
+    for(let index = 0; index < list1.length; index++){
+        mapList[list1[index]] = index;
+    }
+    list2.forEach((restaurant, index) =>{
+       if(mapList[restaurant] != undefined){
+           if(minimumIndexSum >= (mapList[restaurant] + index)){
+               minimumIndexSum = mapList[restaurant] + index;
+               if(result[minimumIndexSum] == undefined){
+                   result[minimumIndexSum] = [list2[index]];
+               }else{
+                   result[minimumIndexSum].push(list2[index]);
+               }
+           }
+       }
+    });
+    return result[minimumIndexSum];
+};
