@@ -1,8 +1,0 @@
-var minCostClimbingStairs = function(cost) {
-    var iLength = cost.length;
-    var aMinimum = cost;
-    for (var i=2; i<iLength; i++) {
-        aMinimum[i] += Math.min(aMinimum[i-1], aMinimum[i-2]);
-    }
-    return Math.min(aMinimum[iLength-1], aMinimum[iLength-2]);
-};

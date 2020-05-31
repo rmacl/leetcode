@@ -1,9 +1,0 @@
-var reachNumber = function(target) {
-    target = Math.abs(target);
-    let index = 0;
-    while (target > 0){
-        index++;
-        target -= index;
-    }
-    return (target % 2 == 0) ? index : index + 1 + index%2; 
-};

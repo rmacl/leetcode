@@ -1,4 +1,0 @@
-var getSum = function(a, b) {
-    var iSum = b ? getSum(a ^ b, (a & b) << 1) : a;
-    return iSum;
-};

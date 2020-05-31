@@ -1,8 +1,0 @@
-var detectCapitalUse = function(word) {
-    var sRegx1 = /\b(^[A-Z]([a-z]+||[A-Z]+))\b/;
-    var sRegx2 = /\b([a-z]+)\b/;
-    if(sRegx1.test(word) == true || sRegx2.test(word) == true){
-        return true;
-    }
-    return false;
-};

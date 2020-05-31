@@ -1,4 +1,0 @@
-var thirdMax = function(nums) {
-    var aTemp = nums.sort((a,b) => b-a).filter((iValue,iIndex,aSorted) => aSorted.indexOf(iValue) == iIndex);
-    return (aTemp[2] != undefined) ? aTemp[2] : aTemp[0]; 
-};

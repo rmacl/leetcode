@@ -1,4 +1,0 @@
-var findLUSlength = function(a, b) {
-    var iResult = (a == b) ? -1 : Math.max(a.length, b.length);
-    return iResult;
-}

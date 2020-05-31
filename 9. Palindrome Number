@@ -1,9 +1,0 @@
-var isPalindrome = function(x) {
-    if(x<0){
-        return false;
-    }
-    var aX = x.toString().split('');  
-    var aReverse = [...aX].reverse();
-    
-    return aX.every((iElement, iIndex)=>  aReverse[iIndex] == iElement );    
-};

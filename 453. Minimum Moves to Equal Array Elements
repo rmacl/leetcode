@@ -1,8 +1,0 @@
-var minMoves = function(nums) {
-    var iMin = nums[0];
-    var iTotal = nums.reduce((iTotal, iCurrent) =>{       
-        iMin = (iCurrent > iMin) ? iMin : iCurrent;
-        return iTotal +iCurrent;
-    });
-    return iTotal - (iMin*nums.length);
-};    
