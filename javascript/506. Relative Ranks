@@ -1,0 +1,21 @@
+var findRelativeRanks = function(nums) {
+  var aCopy = nums.slice();
+  var oNums = {};
+    
+  aCopy.sort((a,b) => b - a);
+  aCopy.forEach((num, iIndex) => {
+    oNums[num] = (iIndex +1).toString();
+    if (iIndex === 0) {
+      oNums[num] = "Gold Medal";
+    }
+    if (iIndex === 1) {
+      oNums[num] = "Silver Medal";
+    }
+    if (iIndex === 2) {
+       oNums[num] = "Bronze Medal";
+    }
+  });
+  return nums.map(iVal => {
+    return oNums[iVal];
+  });
+};

@@ -1,0 +1,5 @@
+var missingNumber = function(nums) {
+    var iLength = nums.length;
+    var iSum = iLength*(iLength+1)/2;
+    return iSum - nums.reduce((iTotal, iValue) => iTotal + iValue);
+};

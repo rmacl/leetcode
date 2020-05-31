@@ -1,0 +1,5 @@
+var maximumProduct = function(nums) {
+    var iLength = nums.length;
+    var aResult = nums.sort((a,b)=> b-a); 
+    return Math.max(aResult[0] *aResult[1] * aResult[2], aResult[iLength-1]*aResult[iLength-2]*aResult[0]) ;
+};

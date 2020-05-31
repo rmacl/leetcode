@@ -1,0 +1,17 @@
+var permute = function(nums) {
+    var aResult = [];
+    
+    if(nums.length == 1){
+        return [nums];
+    }
+    for(var iIndex = 0; iIndex < nums.length; iIndex++){
+        var aFirst = nums.slice(iIndex, iIndex+1);
+        var aRest = (nums.slice(0,iIndex)).concat(nums.slice(iIndex+1));
+        var aPermutated = permute(aRest);
+    
+        for(var iIndex2 = 0; iIndex2 < aPermutated.length; iIndex2++){
+            aResult.push(aFirst.concat(aPermutated[iIndex2]));
+        }
+    }
+    return aResult;
+};

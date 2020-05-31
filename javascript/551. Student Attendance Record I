@@ -1,0 +1,19 @@
+var checkRecord = function(s) {
+    var iCountA = 0;
+    var iCountL = 0;
+    for(var i = 0; i < s.length; i++){
+        if(s.charAt(i-1) == 'L' && s.charAt(i) != 'L'){
+            iCountL = 0;
+        }
+        if(s.charAt(i) == 'A'){
+            iCountA ++;
+        }else if(s.charAt(i-1) == 'L' &&s.charAt(i) == 'L'){
+            iCountL ++;
+        }
+        
+        if(iCountA > 1 || iCountL >1){
+            return false;
+        }
+    }
+    return true;
+};

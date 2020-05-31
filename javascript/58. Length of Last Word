@@ -1,0 +1,15 @@
+var lengthOfLastWord = function(s) {
+    var sWord = s.trim();
+    
+    if(!sWord){
+        return 0;
+    }
+    var iLength =0;
+    var iIndex = sWord.length-1;
+    
+    while(sWord[iIndex]  && sWord[iIndex] !== ' '){
+        iLength ++;
+        iIndex --;
+    }
+    return iLength;
+};

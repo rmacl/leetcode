@@ -1,0 +1,13 @@
+var reverseStr = function(s, k) {
+    var aS = s.split('');
+    for(var iIndex = 0; iIndex < aS.length; iIndex += k*2){
+        var iEnd = Math.min(aS.length-1, iIndex+k-1);
+        var iStart = iIndex;
+        while(iStart < iEnd){
+            var sTemp = aS[iStart];
+            aS[iStart++] = aS[iEnd];
+            aS[iEnd--] = sTemp;
+        }
+    }
+    return aS.join('');
+};

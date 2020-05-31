@@ -1,0 +1,16 @@
+var buildTree = function(preorder, inorder) {
+    
+    var helper = function( aPreorder, aInorder){
+        if(aInorder.length == 0 || aPreorder.length == 0){
+            return null;
+        }
+        var iIndex = aInorder.indexOf(aPreorder[0]);
+        var oTree = new TreeNode(aPreorder[0]);
+        oTree.left = helper(aPreorder.slice(1, 1+iIndex), aInorder.slice(0, iIndex));
+        oTree.right = helper(aPreorder.slice(iIndex+1), aInorder.slice(iIndex+1));
+        return oTree;
+    
+    }
+    return helper(preorder, inorder);
+    
+};

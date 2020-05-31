@@ -1,0 +1,16 @@
+var toLowerCase = function(str) {
+    
+    var aTemp = [];
+    var iAscii;
+    for(var i=0; i< str.length; i++){
+        iAscii = str.charCodeAt(i);
+        if(65 <= iAscii && iAscii <= 90 ) {
+            aTemp.push(iAscii + 32);
+        }
+        else{
+            aTemp.push(iAscii);
+        }
+    }
+    return String.fromCharCode.apply(this, aTemp);
+
+};

@@ -1,0 +1,11 @@
+var findTheDifference = function(s, t) {
+    var aS = s.split('').sort((a,b) => a.localeCompare(b));  
+    var aT = t.split('').sort((a,b) => a.localeCompare(b));
+  
+    for(var iIndex =0; iIndex < aT.length; iIndex++){
+        var sChar =  aT[iIndex];
+        if(aS[iIndex] != sChar){
+            return sChar;
+        }
+    }
+};

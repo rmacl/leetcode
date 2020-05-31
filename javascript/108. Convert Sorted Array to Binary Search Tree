@@ -1,0 +1,10 @@
+var sortedArrayToBST = function(nums) {
+   if(nums.length == 0){
+        return null;
+    }
+    var iMiddle = Math.floor(nums.length/2);
+    var oTree = new TreeNode(nums[iMiddle]);
+    oTree.left = sortedArrayToBST(nums.slice(0, iMiddle));
+    oTree.right = sortedArrayToBST(nums.slice(iMiddle+1)); 
+    return oTree;
+};

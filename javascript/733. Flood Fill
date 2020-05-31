@@ -1,0 +1,28 @@
+var floodFill = function(image, sr, sc, newColor) {
+    
+    let oldColor = image[sr][sc];
+    if(oldColor != newColor){
+    traverseImage(image,  sr, sc, newColor, oldColor);
+    }
+    return image;
+};
+
+function traverseImage(image,  sr, sc, newColor, oldColor){
+    
+    if(image[sr][sc] == oldColor){   
+            image[sr][sc] = newColor;
+        
+            if(sr >= 1){
+                traverseImage(image, sr-1, sc, newColor, oldColor);
+            }
+            if(sc >= 1){
+             traverseImage(image,  sr, sc-1, newColor, oldColor);
+            }
+            if(sr+1 < image.length){
+            traverseImage(image, sr+1, sc, newColor, oldColor);
+            }
+            if(sc+1 < image[0].length){
+            traverseImage(image, sr, sc+1, newColor, oldColor);
+            }
+    }
+}

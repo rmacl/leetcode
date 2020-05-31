@@ -1,0 +1,18 @@
+var removeNthFromEnd = function(head, n) {
+    var oHead = new ListNode(0);
+    oHead.next = head;
+    var oLeft = oHead;
+    var oRight = oHead;
+
+    var iIndex = 0;
+    while(iIndex <= n){
+        oRight = oRight.next;
+        iIndex++;
+    }
+    while(oRight){
+        oRight = oRight.next;
+        oLeft = oLeft.next;
+    }
+    oLeft.next = oLeft.next.next;
+    return oHead.next;
+};

@@ -1,0 +1,17 @@
+var isBalanced = function(root) {
+
+    var iDiff = 0;
+    var searchPath = function(root){
+        if (root == null) {
+            return 0;
+        };
+        var iLeft = searchPath(root.left);
+        var iRight = searchPath(root.right);
+        iDiff = Math.max(iDiff, Math.abs(iLeft - iRight));
+        
+        return Math.max(iLeft, iRight) + 1;
+    }
+
+    searchPath(root); 
+    return iDiff <= 1;
+};

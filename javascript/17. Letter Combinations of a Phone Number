@@ -1,0 +1,21 @@
+var letterCombinations = function(digits) {
+ 
+    var aLetter = [[],[],['a','b','c'], ['d','e','f'],['g','h','i'],['j','k','l'],['m','n','o'],['p','q','r','s'],['t','u','v'],['w','x','y','z']];
+    var aResult = [];
+    var sCombination = '';
+    var iIndex = 0;
+    var iLength = digits.length;
+    
+    var helper = function(sCombination, iIndex){
+        if(sCombination.length == iLength){
+            aResult.push(sCombination);
+            return;
+        }
+        var aGroup = aLetter[digits.charAt(iIndex)];
+        aGroup.forEach((sLetter)=>{
+            helper(sCombination +  sLetter, iIndex+1);
+        });
+    };
+    helper(sCombination, iIndex);
+    return iLength != 0 ? aResult : [];
+};

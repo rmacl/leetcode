@@ -1,0 +1,18 @@
+var sortedSquares = function(A) {
+    let result = [];
+    let startIndex = 0;
+    let length = A.length-1;
+    let endIndex = length;
+    while(startIndex <= endIndex){
+        if(A[startIndex]**2  <  A[endIndex] **2){
+            result[length] = A[endIndex] **2;
+            endIndex--;
+            length--;
+            continue;
+        } 
+            result[length] = A[startIndex]**2;
+            startIndex++;
+            length--;
+    }
+    return result;
+};

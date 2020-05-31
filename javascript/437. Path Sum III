@@ -1,0 +1,26 @@
+var pathSum = function(root, sum) {
+    let count = 0;
+    function traverseTree(root){
+        if(root == null){
+            return;
+        }
+        return getSum(root, 0) || traverseTree(root.left) || traverseTree(root.right);
+    }
+    
+    function getSum(tree, tempSum){
+        if(tree == null){
+            return false;
+        }
+        
+        tempSum += tree.val;
+        if(sum == tempSum){
+            count++;
+        }
+    
+        getSum(tree.right, tempSum);
+        getSum(tree.left , tempSum);
+        
+    }
+    traverseTree(root);
+    return count;
+};

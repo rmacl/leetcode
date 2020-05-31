@@ -1,0 +1,27 @@
+var getMinimumDifference = function(root) {
+    
+    var iFlag = 0;
+    var iMin;
+    var iPreviousValue;
+ 
+    
+    var searchTree = function(oTree){
+        if(oTree == null){
+            return false;
+        }
+        searchTree(oTree.left);
+        
+        if(iFlag == 1){
+            iMin = oTree.val - iPreviousValue;
+        }else{
+            iMin = Math.min(iMin, oTree.val - iPreviousValue);
+        }
+        iPreviousValue = oTree.val;
+        iFlag ++;
+        
+        searchTree(oTree.right);
+    };
+    
+    searchTree(root);
+    return Math.abs(iMin);
+};

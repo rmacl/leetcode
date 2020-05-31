@@ -1,0 +1,18 @@
+var checkPossibility = function(nums) {
+   
+    var iFlag = -1;
+    for(var iIndex = 0; iIndex < nums.length; iIndex++){
+        if(nums[iIndex] > nums[iIndex+1]){
+           if(iFlag != -1){
+               return false;
+           }else{
+            iFlag = iIndex;
+           }
+        }
+    }
+    
+    if(iFlag == 0 || iFlag == -1 || iFlag == nums.length-2 || nums[iFlag-1] <= nums[iFlag+1] || nums[iFlag] <= nums[iFlag+2]){
+        return true;
+    }
+    return false;
+};

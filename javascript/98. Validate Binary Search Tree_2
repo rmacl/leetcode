@@ -1,0 +1,18 @@
+var isValidBST = function(root) {
+
+    function traverseTree(root, min, max){
+        if(root == null){
+            return true;
+        }      
+        let value = root.val;
+        if(min != null && value <= min){
+            return false;
+        }
+        if(max != null && value >= max){
+            return false;
+        }        
+        return traverseTree(root.right, value, max) && traverseTree(root.left, min, value);
+        
+    }
+    return traverseTree(root, null, null);
+};
